@@ -7,10 +7,25 @@ students = [
   { student: "Мельник",  grade: 59 }
 ]
 
-passed, failed = students.partition { |s| s[:grade] >= 60 }
+# через partition
+passed1, failed1 = students.partition { |s| s[:grade] >= 60 }
 
+puts "Спосіб 1 (partition)"
 puts "Склали (>= 60):"
-passed.each { |s| puts "  #{s[:student]} - #{s[:grade]}" }
-
+passed1.each { |s| puts "  #{s[:student]} - #{s[:grade]}" }
 puts "Не склали (< 60):"
-failed.each { |s| puts "  #{s[:student]} - #{s[:grade]}" }
+failed1.each { |s| puts "  #{s[:student]} - #{s[:grade]}" }
+
+puts
+
+# через select і reject
+passed2 = students.select { |s| s[:grade] >= 60 }
+failed2 = students.reject { |s| s[:grade] >= 60 }
+
+puts "Спосіб 2 (select + reject)"
+puts "Склали (>= 60):"
+passed2.each { |s| puts "  #{s[:student]} - #{s[:grade]}" }
+puts "Не склали (< 60):"
+failed2.each { |s| puts "  #{s[:student]} - #{s[:grade]}" }
+
+puts
