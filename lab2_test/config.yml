@@ -1,0 +1,6 @@
+---
+database:
+  host: localhost
+  port: 5432
+  name: app_db
+last_run_at: '2026-10-17T14:27:12+00:00'
