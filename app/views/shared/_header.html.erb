@@ -1,0 +1,46 @@
+<header>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <%= link_to root_path, class: "navbar-brand d-flex align-items-center gap-2" do %>
+        Lab7 Wiki
+        <%# Версія проєкту (варіант 16) %>
+        <span class="badge text-bg-info">v<%= APP_VERSION %></span>
+      <% end %>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+              data-bs-target="#mainNavbar" aria-controls="mainNavbar"
+              aria-expanded="false" aria-label="Перемкнути навігацію">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="mainNavbar">
+        <%# Розділи документації (Nav tab) %>
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <%= nav_link "Про проєкт", about_path %>
+          <%= nav_link "Quick Start", quick_start_path %>
+          <%= nav_link "API", api_docs_path %>
+          <%= nav_link "FAQ", faq_path %>
+        </ul>
+
+        <%# Дії над сутністю «Користувач» %>
+        <ul class="navbar-nav mb-2 mb-lg-0">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button"
+               data-bs-toggle="dropdown" aria-expanded="false">Користувачі</a>
+            <ul class="dropdown-menu dropdown-menu-end">
+              <li><%= link_to "Створити користувача", new_user_path, class: "dropdown-item" %></li>
+              <li><%= link_to "Показати всіх користувачів", users_path, class: "dropdown-item" %></li>
+              <li><hr class="dropdown-divider"></li>
+              <li>
+                <%= link_to "Видалити всіх користувачів", destroy_all_users_path,
+                      class: "dropdown-item text-danger",
+                      data: { turbo_method: :delete,
+                              turbo_confirm: "Ви впевнені, що хочете видалити ВСІХ користувачів? Цю дію не можна скасувати." } %>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>

@@ -1,0 +1,27 @@
+<% content_for :title, "API" %>
+
+<h1 class="mb-4">API</h1>
+
+<p class="lead">
+  Ресурс <code>users</code> доступний у форматі JSON (додайте <code>.json</code> до адреси).
+</p>
+
+<div class="table-responsive">
+  <table class="table table-striped align-middle">
+    <thead class="table-dark">
+      <tr>
+        <th>Метод</th>
+        <th>Шлях</th>
+        <th>Опис</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td><span class="badge text-bg-success">GET</span></td><td><code>/users</code></td><td>Список усіх користувачів</td></tr>
+      <tr><td><span class="badge text-bg-success">GET</span></td><td><code>/users/:id</code></td><td>Один користувач</td></tr>
+      <tr><td><span class="badge text-bg-primary">POST</span></td><td><code>/users</code></td><td>Створити користувача (<code>name</code>, <code>email</code>)</td></tr>
+      <tr><td><span class="badge text-bg-warning">PATCH</span></td><td><code>/users/:id</code></td><td>Оновити користувача</td></tr>
+      <tr><td><span class="badge text-bg-danger">DELETE</span></td><td><code>/users/:id</code></td><td>Видалити користувача</td></tr>
+      <tr><td><span class="badge text-bg-danger">DELETE</span></td><td><code>/users/destroy_all</code></td><td>Видалити всіх користувачів</td></tr>
+    </tbody>
+  </table>
+</div>

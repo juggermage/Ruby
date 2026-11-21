@@ -1,0 +1,30 @@
+<% content_for :title, "FAQ" %>
+
+<h1 class="mb-4">FAQ</h1>
+
+<div class="accordion" id="faqAccordion">
+  <% [
+    [ "Як додати нового користувача?",
+      "Оберіть у навігаційній панелі Користувачі → Створити користувача, заповніть форму й збережіть." ],
+    [ "Як переглянути всіх користувачів?",
+      "Користувачі → Показати всіх користувачів." ],
+    [ "Чи можна скасувати «Видалити всіх користувачів»?",
+      "Ні. Перед виконанням дії з'явиться запит на підтвердження, після підтвердження записи видаляються безповоротно." ],
+    [ "Де знайти вихідний код?",
+      "Натисніть кнопку «Редагувати на GitHub» у футері сторінки." ]
+  ].each_with_index do |(question, answer), i| %>
+    <div class="accordion-item">
+      <h2 class="accordion-header">
+        <button class="accordion-button <%= 'collapsed' unless i.zero? %>" type="button"
+                data-bs-toggle="collapse" data-bs-target="#faq<%= i %>"
+                aria-expanded="<%= i.zero? %>" aria-controls="faq<%= i %>">
+          <%= question %>
+        </button>
+      </h2>
+      <div id="faq<%= i %>" class="accordion-collapse collapse <%= 'show' if i.zero? %>"
+           data-bs-parent="#faqAccordion">
+        <div class="accordion-body"><%= answer %></div>
+      </div>
+    </div>
+  <% end %>
+</div>

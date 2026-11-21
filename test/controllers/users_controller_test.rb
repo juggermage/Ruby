@@ -45,4 +45,10 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
 
     assert_redirected_to users_url
   end
+
+  test "should destroy all users" do
+    delete destroy_all_users_url
+    assert_equal 0, User.count
+    assert_redirected_to users_url
+  end
 end

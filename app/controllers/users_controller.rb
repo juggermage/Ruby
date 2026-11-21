@@ -57,6 +57,17 @@ class UsersController < ApplicationController
     end
   end
 
+  # DELETE /users/destroy_all — повне очищення таблиці користувачів
+  def destroy_all
+    count = User.count
+    User.destroy_all
+
+    respond_to do |format|
+      format.html { redirect_to users_path, notice: "Усіх користувачів видалено (#{count}).", status: :see_other }
+      format.json { head :no_content }
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
